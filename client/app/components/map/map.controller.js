@@ -85,7 +85,9 @@ class mapController {
 	}
 
 	changeColor() {
-		const objects = ymaps.geoQuery(this.collection).search(x => x.distance > this.halfDistance);
+		const objects = ymaps.geoQuery(this.collection).search(x => {
+			return x.distance > this.halfDistance;
+		});
 		objects.setOptions(
 			{
 				strokeColor: '#ff0005',
