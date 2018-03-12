@@ -1,0 +1,13 @@
+<ya-map ya-zoom="{{$ctrl.zoom}}"
+        ya-center="[37.64,55.76]"
+        ya-after-init="$ctrl.afterMapInit($target)"
+        ya-controls="zoomControl"
+>
+
+    <ya-collection ya-options="{strokeWidth:3}" ya-after-init="$ctrl.afterInitCollection($target)">
+        <ya-geo-object ng-repeat="obj in $ctrl.edges"
+                       ya-source="obj"
+                       ya-after-init="$ctrl.afterGeoObjectInit(obj, $target, $last)"
+        ></ya-geo-object>
+    </ya-collection>
+</ya-map>
